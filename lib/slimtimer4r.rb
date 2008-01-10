@@ -2,10 +2,12 @@ require 'yaml'
 require 'net/http'
 
 class SlimTimer
-  VERSION = '0.2.0'
+  VERSION = '0.2.1'
 
   #
-  # The Record class is used to encapsulate the data returned from the SlimTimer API
+  # The Record class is used to encapsulate the data returned from the SlimTimer API. This allows access 
+  # to hash key/value pairs using the @entry.task.name format rather than @entry["task"]["name"].
+  # 
   class Record
     attr_reader :type, :hash
 
@@ -75,7 +77,7 @@ class SlimTimer
     get_token
   end
 
-  # Returns a list of tasks.
+  # Returns an array of Record objects, each representing a task. Returns an empty array if nothing is found.
   #
   # Options:
   # <tt>show_completed</tt>::          Include completed tasks. Specify +only+ to only include the completed tasks. Valid options are +yes+, +no+, and +only+. Default is +yes+.
@@ -84,7 +86,7 @@ class SlimTimer
     request("get", "#{@user_id}/tasks?api_key=#{@api_key}&access_token=#{@access_token}&show_completed=#{show_completed}&role=#{role}", "Tasks")
   end
 
-  # Returns a specific task. Returns _nil_ if the record is not found.
+  # Returns a specific task as a Record object. Returns _nil_ if the record is not found.
   #
   # Options:
   # <tt>task_id</tt>:: The id of the task you would like to retrieve.
@@ -104,9 +106,24 @@ class SlimTimer
     request("put", "#{@user_id}/tasks/#{task_id}", {"access_token" => @access_token, "api_key" => @api_key, "task" => {"name" => name, "tags" => tags, "coworker_emails" => coworker_emails, "reporter_emails" => reporter_emails, "completed_on" => completed_on}}, "Task")
   end
 
+  # Returns an array of Record objects, each representing a time entry. Returns an empty array if nothing is found.
+  #
+  # Options:
+  # <tt>range_start</tt>:: Only include entries after this time. Takes either a Date 
+  #                        or Time object as a parameter. If a Date object is used, 
+  #                        it will append a time of 00:00:00 to the request. Default 
+  #                        is +nil+, meaning there is no start range.
+  # <tt>range_end  </tt>:: Only include entries before this time. Takes either a Date 
+  #                        or Time object as a parameter. If a Date object is used, 
+  #                        it will append a time of 23:59:59 to the request. Default 
+  #                        is +nil+, meaning there is no end range.
   def list_timeentries(range_start=nil, range_end=nil)
     range_start = range_start.strftime("%Y-%m-%dT%H:%M:%SZ") unless range_start.nil?
-    range_end   = range_end.strftime("%Y-%m-%dT%H:%M:%SZ") unless range_end.nil?
+    if range_end.is_a?(Date)
+      range_end = range_end.strftime("%Y-%m-%dT23:59:59Z")
+    else
+      range_end = range_end.strftime("%Y-%m-%dT%H:%M:%SZ")   unless range_end.nil?
+    end
     request("get", "#{@user_id}/time_entries?api_key=#{@api_key}&access_token=#{@access_token}&range_start=#{range_start}&range_end=#{range_end}", "TimeEntries")
   end
 

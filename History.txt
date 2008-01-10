@@ -1,3 +1,8 @@
+== 0.2.1 / 2008-01-10
+
+* RDoc enhancements
+* Update list_timeentries method to automatically append a Time of 23:59:59 to the ending range if a Date object was passed in.
+
 == 0.2.0 / 2008-01-09
 
 * 1 major enhancement
