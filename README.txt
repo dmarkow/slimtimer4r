@@ -1,32 +1,30 @@
 slimtimer4r
-    by FIX (your name)
-    FIX (url)
+    by Dylan Markow
+    http://www.dylanmarkow.com
 
-== DESCRIPTION:
-  
-FIX (describe your package)
+== Overview
 
-== FEATURES/PROBLEMS:
-  
-* FIX (list of features or problems)
+A basic wrapper against the SlimTimer (www.slimtimer.com) API.
 
-== SYNOPSIS:
+== Installation
 
-  FIX (code sample of usage)
+RubyGems FTW!
 
-== REQUIREMENTS:
+  sudo gem install slimtimer4r
 
-* FIX (list of requirements)
+== Usage
 
-== INSTALL:
+  require 'slimtimer4r'
 
-* FIX (sudo gem install, anything else)
+  slimtimer = SlimTimer.new("EMAIL", "PASSWORD", "API_KEY")
+  tasks = slimtimer.list_tasks
+	  => [#<Record(Task) "name"=>"Ta...">, #<Record(Task) "name"=>"Br...">...]
 
-== LICENSE:
+== License
 
 (The MIT License)
 
-Copyright (c) 2008 FIX
+Copyright (c) 2008
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
