@@ -1,5 +1,9 @@
-== 1.0.0 / 2008-01-09
+== 0.2.0 / 2008-01-09
 
 * 1 major enhancement
-  * Birthday!
+  * Not-so-ugly code thanks to borrowing from the 37 Signals / Basecamp sample Ruby wrappers
+
+== 0.1.0 / Sometime back in 2006...
+
+* Lots of UGLY code
 

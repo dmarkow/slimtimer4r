@@ -2,7 +2,7 @@ require 'yaml'
 require 'net/http'
 
 class SlimTimer
-  VERSION = '1.0.0'
+  VERSION = '0.2.0'
 
   #
   # The Record class is used to encapsulate the data returned from the SlimTimer API
