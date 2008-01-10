@@ -1,6 +1,4 @@
-slimtimer4r
-    by Dylan Markow
-    http://www.dylanmarkow.com
+== SlimTimer4R
 
 == Overview
 
@@ -19,6 +17,13 @@ RubyGems FTW!
   slimtimer = SlimTimer.new("EMAIL", "PASSWORD", "API_KEY")
   tasks = slimtimer.list_tasks
 	  => [#<Record(Task) "name"=>"Ta...">, #<Record(Task) "name"=>"Br...">...]
+
+== Thanks
+- 37 Signals for their sample Backpack/Basecamp Ruby wrappers
+
+== Author
+- Dylan Markow (dylan@dylanmarkow.com)
+
 
 == License
 

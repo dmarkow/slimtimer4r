@@ -4,7 +4,7 @@ require 'rubygems'
 require 'hoe'
 require './lib/slimtimer4r.rb'
 
-Hoe.new('slimtimer4r', Slimtimer4r::VERSION) do |p|
+Hoe.new('slimtimer4r', SlimTimer::VERSION) do |p|
   p.rubyforge_name = 'slimtimer4r'
   # p.author = 'FIX'
   # p.email = 'FIX'
