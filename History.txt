@@ -1,3 +1,7 @@
+== 0.2.2 / 2008-01-15
+
+* Fix the list_entries method to properly set the beginning time to midnight if a Date is passed in.
+
 == 0.2.1 / 2008-01-10
 
 * RDoc enhancements

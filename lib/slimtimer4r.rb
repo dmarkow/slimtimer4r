@@ -2,7 +2,7 @@ require 'yaml'
 require 'net/http'
 
 class SlimTimer
-  VERSION = '0.2.1'
+  VERSION = '0.2.2'
 
   #
   # The Record class is used to encapsulate the data returned from the SlimTimer API. This allows access 
@@ -118,11 +118,15 @@ class SlimTimer
   #                        it will append a time of 23:59:59 to the request. Default 
   #                        is +nil+, meaning there is no end range.
   def list_timeentries(range_start=nil, range_end=nil)
-    range_start = range_start.strftime("%Y-%m-%dT%H:%M:%SZ") unless range_start.nil?
+    if range_start.is_a?(Date)
+      range_start = range_start.strftime("%Y-%m-%dT00:00:00Z")
+    else
+      range_start = range_start.strftime("%Y-%m-%dT%H:%M:%SZ") unless range_start.nil?
+    end
     if range_end.is_a?(Date)
       range_end = range_end.strftime("%Y-%m-%dT23:59:59Z")
     else
-      range_end = range_end.strftime("%Y-%m-%dT%H:%M:%SZ")   unless range_end.nil?
+      range_end = range_end.strftime("%Y-%m-%dT%H:%M:%SZ") unless range_end.nil?
     end
     request("get", "#{@user_id}/time_entries?api_key=#{@api_key}&access_token=#{@access_token}&range_start=#{range_start}&range_end=#{range_end}", "TimeEntries")
   end
