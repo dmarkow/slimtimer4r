@@ -6,7 +6,7 @@ A basic wrapper against the SlimTimer (www.slimtimer.com) API.
 
 == Installation
 
-RubyGems FTW!
+Install via RubyGems:
 
   sudo gem install slimtimer4r
 
