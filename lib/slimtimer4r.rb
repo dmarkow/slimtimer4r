@@ -190,7 +190,7 @@ class SlimTimer
   end
 
   def connect
-    @connection = Net::HTTP.new("www.slimtimer.com", 80)
+    @connection = Net::HTTP.new("slimtimer.com", 80)
   end
 
   def request(method, path, parameters = {}, type="Result")
