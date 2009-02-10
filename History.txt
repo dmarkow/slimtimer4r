@@ -1,3 +1,7 @@
+== 0.2.3 / 2009-02-10
+
+* Switched to slimtimer.com instead of www.slimtimer.com due to a 301 Moved Permanently error
+
 == 0.2.2 / 2008-01-15
 
 * Fix the list_entries method to properly set the beginning time to midnight if a Date is passed in.
