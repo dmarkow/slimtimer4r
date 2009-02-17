@@ -2,7 +2,7 @@ require 'yaml'
 require 'net/http'
 
 class SlimTimer
-  VERSION = '0.2.3'
+  VERSION = '0.2.4'
 
   #
   # The Record class is used to encapsulate the data returned from the SlimTimer API. This allows access 
@@ -55,25 +55,38 @@ class SlimTimer
       to_s
     end
 
+    def updated_at
+      sanitize_time(super)
+    end
+    
+    def created_at
+      sanitize_time(super)
+    end
+    
     private
 
     def dashify(name)
       name.to_s.tr("_","-")
     end
+    
+    def sanitize_time
+      Time.local(time.year, time.month, time.day, time.hour, time.min, time.sec) unless time.nil?
+    end
+    
   end
 
   attr_accessor :email, :password, :api_key, :user_id, :access_token, :request
 
-  # Creates a new SlimTimer object and obtains the +access_token+ and +user_id+ from the SlimTimer API by sending your +email+, +password+, and +api_key+. Raises a _RuntimeError_ if it can't authenticate.
+  # Creates a new SlimTimer object and obtains the +access_token+ and +user_id+ from the SlimTimer API by sending your +email+, +password+, and +api_key+. Raises a _RuntimeError_ if it can't authenticate. You can also optionally supply a +connection_timeout+ for the SlimTimer servers (the default is 60 seconds).
   # 
   #   slim_timer = SlimTimer.new("person@example.com", "password", "12345")
   #     => #<SlimTimer:0x68bca8 @password="password"...>
   # 
   #   slim_timer = SlimTimer.new("bademail@example.com", "badpassword", "12345")
   #     => RuntimeError: Error occurred (500)
-  def initialize(email, password, api_key)
+  def initialize(email, password, api_key, connection_timeout=60)
     @email, @password, @api_key = email, password, api_key
-    connect
+    connect(connection_timeout)
     get_token
   end
 
@@ -189,8 +202,9 @@ class SlimTimer
     @user_id = values.user_id
   end
 
-  def connect
+  def connect(connection_timeout)
     @connection = Net::HTTP.new("slimtimer.com", 80)
+    @connection.read_timeout = connection_timeout
   end
 
   def request(method, path, parameters = {}, type="Result")

@@ -1,22 +1,35 @@
+== 0.2.4 / 2009-02-17
+
+Enhancements:
+  * Added date/time sanitization to SlimTimer::Record
+  * You can now pass a custom timeout (in seconds) to the SlimTimer object to 
+    bypass the default of 60 seconds (for most platforms).
+  * Thanks to Chris DeRose for these changes (http://www.derosetechnologies.com)
+
 == 0.2.3 / 2009-02-10
 
-* Switched to slimtimer.com instead of www.slimtimer.com due to a 301 Moved Permanently error
+Bug Fixes:
+  * Switched to slimtimer.com instead of www.slimtimer.com due to a 301 Moved Permanently error
 
 == 0.2.2 / 2008-01-15
 
-* Fix the list_entries method to properly set the beginning time to midnight if a Date is passed in.
+Bug Fixes:
+  * Fix the list_entries method to properly set the beginning time to midnight if a Date is passed in.
 
 == 0.2.1 / 2008-01-10
 
-* RDoc enhancements
+Bug Fixes:
 * Update list_timeentries method to automatically append a Time of 23:59:59 to the ending range if a Date object was passed in.
+
+Enhancements:
+* RDoc enhancements
 
 == 0.2.0 / 2008-01-09
 
-* 1 major enhancement
+Enhancements:
   * Not-so-ugly code thanks to borrowing from the 37 Signals / Basecamp sample Ruby wrappers
 
 == 0.1.0 / Sometime back in 2006...
 
-* Lots of UGLY code
+  * Initial release - Lots of UGLY code
 
