@@ -1,35 +1,50 @@
-== SlimTimer4R
+SlimTimer4R
+===========
 
-== Overview
+Overview
+--------
 
 A basic wrapper against the SlimTimer (www.slimtimer.com) API.
 
-== Installation
+Installation
+------------
 
-Install via RubyGems:
+Install via RubyGems: 
 
-  sudo gem install slimtimer4r
+    gem install slimtimer4r
 
-== Usage
+Usage
+-----
 
-  require 'slimtimer4r'
+    require 'slimtimer4r'
+    
+    slimtimer = SlimTimer.new("EMAIL", "PASSWORD", "API_KEY")
+    tasks = slimtimer.list_tasks
+        => [#<Record(Task) "name"=>"Ta...">, #<Record(Task) "name"=>"Br...">...]
 
-  slimtimer = SlimTimer.new("EMAIL", "PASSWORD", "API_KEY")
-  tasks = slimtimer.list_tasks
-	  => [#<Record(Task) "name"=>"Ta...">, #<Record(Task) "name"=>"Br...">...]
+The #list\_tasks and #list\_timeentries methods each return an array, which you can call standard array methods on, such as:
 
-== Thanks
-- 37 Signals for their sample Backpack/Basecamp Ruby wrappers
+    tasks.collect { |task| task.hours }
+        => [0.25, 1.0, 40]
+    tasks.inject(0) { |total, task| total + task.hours }
+        => 41.25
+    tasks.collect { |task| task.hours > 20 }
+        => [#<Record(Task) "hours" => 40, ...>]
 
-== Author
-- Dylan Markow (dylan@dylanmarkow.com)
+Thanks
+------
+* 37 Signals for their sample Backpack/Basecamp Ruby wrappers
 
+Author
+------
+* Dylan Markow (dylan@dylanmarkow.com)
 
-== License
+License
+-------
 
 (The MIT License)
 
-Copyright (c) 2008
+Copyright (c) 2010
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
