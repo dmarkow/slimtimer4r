@@ -55,13 +55,14 @@ class SlimTimer
       to_s
     end
 
-    def updated_at
-      sanitize_time(super)
-    end
-    
-    def created_at
-      sanitize_time(super)
-    end
+    # TODO: Proper sanitization of dates
+    # def updated_at
+    #   sanitize_time(super)
+    # end
+    # 
+    # def created_at
+    #   sanitize_time(super)
+    # end
     
     private
 
@@ -69,7 +70,9 @@ class SlimTimer
       name.to_s.tr("_","-")
     end
     
-    def sanitize_time
+    # This removes the usec's and adjusts the times to the local
+    # time zone.
+    def sanitize_time(time)
       Time.local(time.year, time.month, time.day, time.hour, time.min, time.sec) unless time.nil?
     end
     
