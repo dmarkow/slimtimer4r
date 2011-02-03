@@ -1,6 +1,4 @@
-# A sample Gemfile
 source "http://rubygems.org"
 
-# gem "rails"
-gem "webmock"
-gem "rspec"
+# Specify your gem's dependencies in slimtimer4r.gemspec
+gemspec
