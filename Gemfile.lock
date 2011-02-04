@@ -38,6 +38,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   fakeweb
+  faraday (~> 0.5.4)
+  faraday_middleware
+  hashie
+  multi_xml
   rspec (~> 2.4.0)
   slimtimer4r!
