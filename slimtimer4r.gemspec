@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "activesupport"
   s.add_runtime_dependency "multi_xml"
   s.add_runtime_dependency "hashie"
+  s.add_runtime_dependency "faraday_yaml"
   s.add_development_dependency "rspec", "~> 2.4.0"
   # s.add_development_dependency "fakeweb"
   s.add_development_dependency "webmock"
