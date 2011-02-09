@@ -30,7 +30,7 @@ module SlimTimer
 
     def get(path, params=[])
       response = @connection.get do |req|
-        req.url path, {:api_key => @api_key, :access_token => @access_token}.merge(params)
+        req.url "/users/#{@user_id}/#{path}?api_key=#{@api_key}&access_token=#{@access_token}"
         req.headers['Accept'] = "application/x-yaml"
       end
       response.body

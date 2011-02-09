@@ -3,16 +3,16 @@ PATH
   specs:
     slimtimer4r (0.3.0)
       activesupport
-      faraday (~> 0.5.4)
+      faraday (~> 0.5.5)
       faraday_middleware
-      faraday_yaml
+      faraday_yaml (~> 0.0.2)
       hashie
       multi_xml
 
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.0.3)
+    activesupport (3.0.4)
     addressable (2.2.4)
     crack (0.1.8)
     diff-lcs (1.1.2)
@@ -22,20 +22,20 @@ GEM
       rack (>= 1.1.0, < 2)
     faraday_middleware (0.3.2)
       faraday (~> 0.5.4)
-    faraday_yaml (0.0.1)
-      faraday (~> 0.5.4)
+    faraday_yaml (0.0.2)
+      faraday (~> 0.5.5)
     hashie (1.0.0)
     multi_xml (0.2.1)
     multipart-post (1.1.0)
     rack (1.2.1)
-    rspec (2.4.0)
-      rspec-core (~> 2.4.0)
-      rspec-expectations (~> 2.4.0)
-      rspec-mocks (~> 2.4.0)
-    rspec-core (2.4.0)
-    rspec-expectations (2.4.0)
+    rspec (2.5.0)
+      rspec-core (~> 2.5.0)
+      rspec-expectations (~> 2.5.0)
+      rspec-mocks (~> 2.5.0)
+    rspec-core (2.5.1)
+    rspec-expectations (2.5.0)
       diff-lcs (~> 1.1.2)
-    rspec-mocks (2.4.0)
+    rspec-mocks (2.5.0)
     webmock (1.6.2)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
@@ -44,6 +44,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  rspec (~> 2.4.0)
+  rspec (~> 2.5.0)
   slimtimer4r!
   webmock

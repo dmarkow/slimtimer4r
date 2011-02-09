@@ -1,0 +1,17 @@
+---
+coworkers: []
+
+name: First Task
+created_at: 2008-09-23 14:05:35.369359 Z
+completed_on: 2010-11-29 11:36:21.643819 Z
+owners: 
+- name: Sample User
+user_id: 582
+email: user@example.com
+updated_at: 2010-11-29 17:36:21.644397 Z
+role: owner
+tags: ""
+id: 100
+reporters: []
+
+hours: 43.41

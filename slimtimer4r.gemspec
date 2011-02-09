@@ -19,13 +19,13 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency "faraday", "~> 0.5.4"
+  s.add_runtime_dependency "faraday", "~> 0.5.5"
   s.add_runtime_dependency "faraday_middleware"
   s.add_runtime_dependency "activesupport"
   s.add_runtime_dependency "multi_xml"
   s.add_runtime_dependency "hashie"
-  s.add_runtime_dependency "faraday_yaml"
-  s.add_development_dependency "rspec", "~> 2.4.0"
+  s.add_runtime_dependency "faraday_yaml", "~> 0.0.2"
+  s.add_development_dependency "rspec", "~> 2.5.0"
   # s.add_development_dependency "fakeweb"
   s.add_development_dependency "webmock"
 end
