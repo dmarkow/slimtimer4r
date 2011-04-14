@@ -1,3 +1,8 @@
+== 0.3.1 / 2011-04-14
+
+Bug Fixes:
+  * Add an offset parameter to Client#list_tasks (SlimTimer only returns 50 tasks at a time)
+
 == 2010-11-30
 
 Bug Fixes:

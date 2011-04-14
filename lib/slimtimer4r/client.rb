@@ -2,7 +2,7 @@ require 'yaml'
 require 'net/http'
 module SlimTimer
   class Client
-    VERSION = '0.3.0'
+    VERSION = '0.3.1'
 
     #
     # The Record class is used to encapsulate the data returned from the SlimTimer API. This allows access 
@@ -28,8 +28,8 @@ module SlimTimer
     # Options:
     # <tt>show_completed</tt>::          Include completed tasks. Specify +only+ to only include the completed tasks. Valid options are +yes+, +no+, and +only+. Default is +yes+.
     # <tt>role</tt>::                    Include tasks where the user's role is one of the roles given (comma delimited). Valid options include +owner+, +coworker+, and +reporter+. Default is +owner,coworker+.
-    def list_tasks(show_completed="yes", role="owner,coworker")
-      request("get", "#{@user_id}/tasks?api_key=#{@api_key}&access_token=#{@access_token}&show_completed=#{show_completed}&role=#{role}", "Tasks")
+    def list_tasks(show_completed="yes", role="owner,coworker", offset=0)
+      request("get", "#{@user_id}/tasks?api_key=#{@api_key}&access_token=#{@access_token}&show_completed=#{show_completed}&role=#{role}&offset=#{offset}", "Tasks")
     end
 
     # Returns a specific task as a Record object. Returns _nil_ if the record is not found.
