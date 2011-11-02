@@ -33,6 +33,7 @@ module SlimTimer
         req.url "/users/#{@user_id}/#{path}?api_key=#{@api_key}&access_token=#{@access_token}"
         req.headers['Accept'] = "application/x-yaml"
       end
+      raise InvalidRecord if response.status == 500
       response.body
     end
   end

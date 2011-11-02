@@ -34,6 +34,7 @@ The #list\_tasks and #list\_timeentries methods each return an array, which you 
 Thanks
 ------
 * 37 Signals for their sample Backpack/Basecamp Ruby wrappers
+* Rick Olson for the awesome Faraday HTTP library
 
 Author
 ------
@@ -44,7 +45,7 @@ License
 
 (The MIT License)
 
-Copyright (c) 2010
+Copyright (c) 2011
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

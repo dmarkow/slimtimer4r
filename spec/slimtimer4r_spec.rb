@@ -53,5 +53,14 @@ describe SlimTimer::Client do
       @task = @st.task(100)
       @task.name.should == "First Task"
     end
+    
+    it "throws an error when accessing an invalid task" do
+      stub_request(:get, "http://slimtimer.com/users/1/tasks/100").
+        with(:query => {:api_key => "12345", :access_token => "cea67ae2c4b7fa3be496f508f52aad6230b2684a"}).
+        to_return(:status => 500,
+                  :headers => {'Content-Type' => 'text/html'},
+                  :body => "")
+      lambda { @task = @st.task(100) }.should raise_error(SlimTimer::InvalidRecord)
+    end
   end
 end
