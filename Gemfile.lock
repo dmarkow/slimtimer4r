@@ -2,7 +2,8 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.2)
-    crack (0.1.8)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     diff-lcs (1.1.2)
     rspec (2.2.0)
       rspec-core (~> 2.2)
@@ -12,6 +13,7 @@ GEM
     rspec-expectations (2.2.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.2.0)
+    safe_yaml (1.0.5)
     webmock (1.6.1)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
